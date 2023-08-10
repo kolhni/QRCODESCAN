@@ -1,0 +1,32 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: #f0f0f0;
+}
+
+.container {
+    text-align: center;
+}
+
+h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+#preview {
+    width: 80%;
+    max-width: 400px;
+    height: auto;
+}
+
+#bluetooth-icon {
+    font-size: 48px;
+    margin-top: 20px;
+    color: #007bff;
+}

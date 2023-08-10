@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>QR Code Scan und BLE Geräte Suche</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>QR Code Scan und BLE Geräte Suche</h1>
+        <video id="preview"></video>
+        <div id="bluetooth-icon">&#128247;</div>
+    </div>
+    <script src="https://rawgit.com/schmich/instascan-builds/master/instascan.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const scanner = new Instascan.Scanner({ video: document.getElementById('preview') });
+
+            scanner.addListener('scan', function(content) {
+                alert('Gescannter Inhalt: ' + content);
+
+                // Hier könntest du die BLE-Gerätesuche starten oder weitere Aktionen durchführen
+            });
+
+            Instascan.Camera.getCameras().then(function(cameras) {
+                if (cameras.length > 0) {
+                    scanner.start(cameras[0]);
+                } else {
+                    console.error('Keine Kamera gefunden.');
+                }
+            }).catch(function(e) {
+                console.error(e);
+            });
+
+            // Hier könntest du die BLE-Gerätesuche und -koppeln-Funktionen implementieren
+            // Verwende das cordova-plugin-ble-central, um BLE-Aktionen auszuführen
+        });
+    </script>
+</body>
+</html>
